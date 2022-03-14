@@ -1,0 +1,25 @@
+version: '2'
+services:
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+      - ./src/backup/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+  api:
+    container_name: liftdocker
+    image: liftdocker:latest
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    volumes:
+      - './:/src'
+volumes:
+  db:
+    driver: local
