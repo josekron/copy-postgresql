@@ -11,7 +11,7 @@ Copy a postgres database to another postgres database
 configured in the file `/src/config/configDB.js`
 * `cd src` & `npm install`
 * `node index.js`
-* `http://localhost:3000/lift`
+* `http://localhost:3000/restoredb`
 
 ### Running Tests
 
@@ -25,13 +25,11 @@ tables to anonymise.
 * uncomment line `host: 'host.docker.internal',` in the file `src/config/configDB.js`
 * `docker build -t liftdocker .`
 * `docker compose up --build`
-* `http://localhost:3000/lift`
+* `http://localhost:3000/restoredb`
 
 Note: it will fail due to an issue with having postgres and the app in the same
 docker container.
 
 `await execute(`pg_dump ${this._configDB.database} > ${backupFile}`,);`
 
-I tried it in different ways (child_process, execute) but didn't work. I can
-probably solve this issue with more time, but being honest, I can't dedicate 
-more time to this assessment.
+I tried it in different ways (child_process, execute) but didn't work.
