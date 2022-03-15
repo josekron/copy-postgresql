@@ -10,7 +10,7 @@ const port = 3000;
 /**
  * @author Jose AHP
  */
-app.get('/lift', async (req, res) => {
+app.get('/restoredb', async (req, res) => {
   try {
 
     const worker = new Worker(new Database(configDB1), new Database(configDB2), configColumns);
