@@ -23,7 +23,7 @@ tables to anonymise.
 ### Running Local Docker Container
 
 * uncomment line `host: 'host.docker.internal',` in the file `src/config/configDB.js`
-* `docker build -t liftdocker .`
+* `docker build -t cppostgresqldocker .`
 * `docker compose up --build`
 * `http://localhost:3000/restoredb`
 
